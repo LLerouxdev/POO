@@ -1,21 +1,26 @@
-#ifndef JEUDELAVIE_H
-#define JEUDELAVIE_H
+#ifndef JEU_H
+#define JEU_H
 
-#include <string>
-#include "Grille.h"
+#include "Grid.h"
 #include "Affichage.h"
+#include <string>
 
-class JeuDeLaVie {
-private:
-    Grille grille;
-    int maxIterations;
+class Jeu {
+    private:
+    Grid grille; // représente la grille du jeu
+    int maxIteration;
 
-    Grille chargerGrilleDepuisFichier(const std::string& fichier);
+    Grid chargerGrilleDepuisFichier(const std::string& fichier);
 
-public:
-    JeuDeLaVie(const std::string& fichier, int iterations);
-    void lancerModeConsole();
-    void lancerModeGraphique(int tailleCellule);
+    public:
+   // Constructeur : initialise le jeu avec un fichier et un nombre d'itérations
+    Jeu(const std::string& fichier, int iterations);
+    
+    // Lance le jeu en mode console (sans interface graphique)
+    void ModeConsole(const std::string& fichier);
+    
+    // Lance le jeu en mode graphique (avec une fenêtre SFML)
+    void ModeGraphique(int tailleCellule);
 };
 
 #endif
