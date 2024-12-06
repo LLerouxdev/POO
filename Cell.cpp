@@ -1,11 +1,19 @@
-#include "Cellule.h"
+#include "Cell.h"
 
-Cellule::Cellule(bool etat) : vivante(etat) {}
+Cell::Cell(){
+    this->vivante = false;
+}
+//implémentation du constructeur paramétré
+Cell::Cell(bool etat){ 
+    this->vivante = etat;
+}
 
-bool Cellule::estVivante() const {
+// implémentation du getter qui retourne la variable vivante
+bool Cell::getVie() const {
     return vivante;
 }
 
-void Cellule::definirEtat(bool etat) {
-    vivante = etat;
+// implémentation du setter pour définir l'état de la cellule en bool
+void Cell::setEtat(bool etat){
+    this->vivante = etat;
 }
