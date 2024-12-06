@@ -1,5 +1,14 @@
 # Jeu de la Vie
-Ce projet implémente le célèbre Jeu de la Vie de John Conway en utilisant une architecture MVC (Model-View-Controller) en C++. Le jeu est interactif et propose deux modes d'exécution : mode console et mode graphique.
+Ce projet implémente le célèbre Jeu de la Vie de John Conway, un automate cellulaire développé dans les années 1970, permettant de simuler l’évolution d’une population de cellules sur une grille. Le projet suit une architecture MVC (Model-View-Controller) et propose un mode console ainsi qu’un mode graphique interactif (avec la bibliothèque SFML).
+# Contexte du projet
+Le Jeu de la Vie (Game of Life) est un automate cellulaire conçu par le mathématicien John Horton Conway. Il permet d’observer l’évolution d’une population de cellules sur une grille basée sur des règles simples. Bien qu'il soit déterministe, il peut générer des motifs complexes.
+
+Notre implémentation propose :
+
+## Une architecture MVC pour une séparation claire des responsabilités.
+## Un mode console simplifié pour suivre l’évolution itération par itération.
+## Un mode graphique interactif avec la bibliothèque SFML, offrant une visualisation plus intuitive et la possibilité d’interagir avec la grille.
+Ce projet a avant tout un but pédagogique, permettant d’explorer la programmation C++, la conception logicielle via MVC, l’utilisation de bibliothèques graphiques externes et la mise en œuvre d’automates cellulaires.
 
 # Fonctionnalités
 Mode Console : Affichage des itérations du jeu dans le terminal.
