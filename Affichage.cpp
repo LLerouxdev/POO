@@ -15,7 +15,7 @@ void Affichage::afficherGrille(const Grid& grille){
     for (int x = 0; x < grille.getLignes(); ++x) {
         for (int y = 0; y < grille.getColonnes(); ++y) {
             if (grille.getEtatCellule(x, y)) {
-                cellule.setPosition(x * tailleCellule, y * tailleCellule);
+                cellule.setPosition(y * tailleCellule, x * tailleCellule);
                 window.draw(cellule);
             }
         }
