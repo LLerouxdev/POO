@@ -1,27 +1,35 @@
-#include "JeuDeLaVie.h"
+#include "Jeu.h"
 #include <iostream>
 
-int main(int argc, char* argv[]) {
-    if (argc < 3) {
-        std::cout << "Usage : " << argv[0] << " <fichier_entree> <iterations> [--graphique]" << std::endl;
-        return 1;
+int main(int argc, char * argv[]) { 
+    //vérifie si les arguments sont suffisant pour lancer le programme
+    if(argc < 3){
+        std::cout << "Usage :" << argv[0] << "<fichier_input> <iterations> [--graphique]" << std::endl;
+        return 1; //retourne une erreur si les arguments sont manquants
     }
-
+    //récupére le nom du fichier et le nombre d'itération
     std::string fichier = argv[1];
     int iterations = std::stoi(argv[2]);
-    bool modeGraphique = (argc == 4 && std::string(argv[3]) == "--graphique");
+    // détermine si le mode graphique est activé
+    bool modeGraph = (argc == 4 && std::string(argv[3]) == "--graphique");
 
-    try {
-        JeuDeLaVie jeu(fichier, iterations);
-        if (modeGraphique) {
-            jeu.lancerModeGraphique(10); // Taille des cellules = 10
-        } else {
-            jeu.lancerModeConsole();
+    try{
+        Jeu jeu(fichier, iterations);
+        //lance le jeu soit en mode console soit en mode graphique
+        if(modeGraph){
+            jeu.ModeGraphique(10); //taille des cellules = 10
         }
-    } catch (const std::exception& e) {
-        std::cerr << "Erreur : " << e.what() << std::endl;
-        return 1;
+        else {
+            jeu.ModeConsole(fichier);
+        }
     }
 
-    return 0;
+    catch(const std::exception& e){
+        // si une erreur survient, affiche le message d'erreur
+        std::cerr << "Erreur :" << e.what() << std::endl;
+        return 1; //retourne une erreur
+    }
+
+    return 0; // Terminer l'exécution
 }
+
