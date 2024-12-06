@@ -18,21 +18,23 @@ Contrôleur (Jeu) : Orchestration entre le modèle et la vue.
 SFML (Simple and Fast Multimedia Library)
 Pour installer SFML sous Linux :
 
-sudo apt-get install libsfml-dev
+```sudo apt-get install libsfml-dev```
 # Compilation et exécution
 ## Compilation
 Un fichier Makefile est inclus pour simplifier la compilation. Exécutez simplement :
 
-make
+```make```
 ## Lancer le jeu
 Après compilation, utilisez :
 
-./Jeu <nom_du_fichier> <nombre_d'itérations>
-Exemple en mode console :
-./Jeu fichier_input.txt 100
-Exemple en mode graphique :
-./Jeu fichier_input.txt 100 20
-(20 correspond à la taille des cellules en pixels.)
+./Jeu
+Puis indiquez le chemin du fichier contenant l’état initial des cellules en paramètre : 
+Exemple : fichier_input.txt
+Après avoir indiqué le chemin du fichier,entrez le nombre d'itérations à effectuer : 
+Exemple : 100
+Pour finir choissisez le mode (Graphique, Console) : 
+1) Mode Console
+2) Mode Graphique
 
 # Fichiers du projet
 main.cpp : Point d'entrée du programme.
