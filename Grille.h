@@ -1,26 +1,44 @@
-#ifndef GRILLE_H
-#define GRILLE_H
+#ifndef GRID_H
+#define GRID_H
 
 #include <vector>
-#include "Cellule.h"
+#include "Cell.h"
 
-class Grille {
+class Grid {
 private:
-    int lignes, colonnes;
-    std::vector<std::vector<Cellule>> cellules;
+    int lignes;
+    int colonnes;
+    std::vector<std::vector<Cell>> grid;  // Tableau 2D représentant les cellules de la grille
 
+    // Méthode pour compter le nombre de voisins vivants d'une cellule donnée
     int compterVoisinsVivants(int x, int y) const;
 
 public:
-    Grille(int lignes, int colonnes);
-    void definirEtatCellule(int x, int y, bool etat);
-    bool obtenirEtatCellule(int x, int y) const; // Ajout de cette méthode
+    Grid();// Constructeur par défault
+
+    Grid(int lignes, int colonnes);  // Constructeur : initialise la grille
+
+    // Set l'état d'une cellule à (x, y)
+    void setEtatCellule(int x, int y, bool etat);
+    
+    // Get l'état d'une cellule (vivante ou morte)
+    bool getEtatCellule(int x, int y) const;
+
+    // Actualise l'état de la grille selon les règles du jeu
     void actualiser();
+    
+    // Affiche l'état actuel de la grille dans la console
     void afficher() const;
-    bool estStable(const std::vector<std::vector<Cellule>>& etatPrecedent) const;
-    std::vector<std::vector<Cellule>> obtenirEtat() const;
-    int obtenirLignes() const;
-    int obtenirColonnes() const;
+
+    // Vérifie si la grille est stable (plus aucun changement entre deux états)
+    bool estStable(const std::vector<std::vector<Cell>>& etatPrecedent) const;
+
+    // Retourne l'état complet de la grille
+    std::vector<std::vector<Cell>> getEtat() const;
+
+    // Get le nombre de lignes et de colonnes
+    int getLignes() const;
+    int getColonnes() const;
 };
 
 #endif
