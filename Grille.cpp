@@ -1,63 +1,74 @@
-#include "Grille.h"
+#include "Grid.h"
 #include <iostream>
 
-Grille::Grille(int lignes, int colonnes) : lignes(lignes), colonnes(colonnes) {
-    cellules = std::vector<std::vector<Cellule>>(lignes, std::vector<Cellule>(colonnes));
+Grid::Grid(){
+    this->lignes = 0;
+    this->colonnes = 0;
+}
+Grid::Grid(int lignes, int colonnes){
+    this->grid = std::vector<std::vector<Cell>>(lignes, std::vector<Cell>(colonnes));
+    this->lignes = lignes;
+    this->colonnes = colonnes;
 }
 
-void Grille::definirEtatCellule(int x, int y, bool etat) {
-    cellules[x][y].definirEtat(etat);
-}
-
-bool Grille::obtenirEtatCellule(int x, int y) const {
-    return cellules[x][y].estVivante(); // Renvoie l'état de la cellule
-}
-
-int Grille::compterVoisinsVivants(int x, int y) const {
+int Grid::compterVoisinsVivants(int x, int y) const {
     int compte = 0;
-    for (int dx = -1; dx <= 1; ++dx) {
-        for (int dy = -1; dy <= 1; ++dy) {
-            if (dx == 0 && dy == 0) continue; // Ignorer la cellule elle-même
-            int nx = x + dx;
-            int ny = y + dy;
-            if (nx >= 0 && nx < lignes && ny >= 0 && ny < colonnes && cellules[nx][ny].estVivante()) {
-                ++compte;
+    //parcourt autour de la cellule
+    for(int k = -1; k <= 1; ++k){ 
+        for(int h = -1; h <= 1; ++h){
+            if(k == 0 && h == 0) continue; //ignorer la cellule elle-même
+            int vx = (x + k + lignes) % lignes;  //position voisine en x avec wrap-around
+            int vy = (y + h + colonnes) % colonnes; // Position voisine en y avec wrap-around
+            if(vx >= 0 && vx < lignes && vy >= 0 && vy < colonnes && grid[vx][vy].getVie()){ //vx est borné entre 0 et la taille de la ligne et vy est borné entre 0 et la taille de la colonne, on vérifie si l'état de la voisine est vivante
+                ++compte; //incrérmente le compteur pour chaque voisin de la cellule 
             }
-        }
+        } 
     }
     return compte;
 }
 
-void Grille::actualiser() {
-    auto nouvelEtat = cellules;
-
-    for (int x = 0; x < lignes; ++x) {
-        for (int y = 0; y < colonnes; ++y) {
-            int voisinsVivants = compterVoisinsVivants(x, y);
-            if (cellules[x][y].estVivante()) {
-                nouvelEtat[x][y].definirEtat(voisinsVivants == 2 || voisinsVivants == 3);
-            } else {
-                nouvelEtat[x][y].definirEtat(voisinsVivants == 3);
-            }
-        }
-    }
-
-    cellules = nouvelEtat;
+// défini l'état d'une cellule à une position (x, y)
+void Grid::setEtatCellule(int x, int y, bool etat){
+    this-> grid[x][y].setEtat(etat);
 }
 
-void Grille::afficher() const {
-    for (const auto& ligne : cellules) {
-        for (const auto& cellule : ligne) {
-            std::cout << (cellule.estVivante() ? "1 " : "0 ");
+//récupére l'état d'une cellule 
+bool Grid::getEtatCellule(int x, int y) const {
+    return grid[x][y].getVie(); // retourne vrai si la cellule est vivante sinon faux
+}
+
+// actualiser la grille à chaque itération
+void Grid::actualiser(){
+    auto newEtatGrille = grid;
+    for(int x = 0 ; x < lignes; ++x){
+        for(int y = 0; y < colonnes; ++y){
+            int voisinVivant = compterVoisinsVivants(x, y);
+            if(grid[x][y].getVie()){
+                newEtatGrille[x][y].setEtat(voisinVivant == 2 || voisinVivant == 3);
+            } else {
+                newEtatGrille[x][y].setEtat(voisinVivant == 3);
+            }  
         }
+    }
+    grid = newEtatGrille; //met à jour létat de la grille
+}
+
+// Affichage des cellules dans la grille
+void Grid::afficher() const {
+    for(const auto& ligne : grid){ //parcourt toutes les lignes de la grille
+        for(const auto& cellule : ligne){ //parcourt toutes les cellules de la lignes
+            std::cout << (cellule.getVie() ? "1" : "0");
+        } 
         std::cout << std::endl;
     }
 }
 
-bool Grille::estStable(const std::vector<std::vector<Cellule>>& etatPrecedent) const {
-    for (int i = 0; i < lignes; ++i) {
-        for (int j = 0; j < colonnes; ++j) {
-            if (cellules[i][j].estVivante() != etatPrecedent[i][j].estVivante()) {
+//Gestion d'erreur !
+// Verifie si la grille est stable (pas de changement entre les états) 
+bool Grid::estStable(const std::vector<std::vector<Cell>>& etatPrecedent) const { 
+    for(int i = 0 ; i < lignes; ++i){
+        for(int j = 0; j < colonnes; ++j){
+            if(grid[i][j].getVie() != etatPrecedent[i][j].getVie()){
                 return false;
             }
         }
@@ -65,14 +76,14 @@ bool Grille::estStable(const std::vector<std::vector<Cellule>>& etatPrecedent) c
     return true;
 }
 
-std::vector<std::vector<Cellule>> Grille::obtenirEtat() const {
-    return cellules;
-}
+// retourne la grille sous forme d'un tableau 2D
+ std::vector<std::vector<Cell>> Grid::getEtat() const {
+    return grid;
+ }
 
-int Grille::obtenirLignes() const {
+int Grid::getLignes() const {
     return lignes;
 }
-
-int Grille::obtenirColonnes() const {
+int Grid::getColonnes() const {
     return colonnes;
 }
