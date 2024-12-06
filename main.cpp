@@ -1,35 +1,49 @@
 #include "Jeu.h"
 #include <iostream>
+#include <string>
 
-int main(int argc, char * argv[]) { 
-    //vérifie si les arguments sont suffisant pour lancer le programme
-    if(argc < 3){
-        std::cout << "Usage :" << argv[0] << "<fichier_input> <iterations> [--graphique]" << std::endl;
-        return 1; //retourne une erreur si les arguments sont manquants
-    }
-    //récupére le nom du fichier et le nombre d'itération
-    std::string fichier = argv[1];
-    int iterations = std::stoi(argv[2]);
-    // détermine si le mode graphique est activé
-    bool modeGraph = (argc == 4 && std::string(argv[3]) == "--graphique");
+int main() {
+    std::string cheminFichier; // Variable pour stocker le chemin du fichier
+    int nombreIterations;     // Variable pour stocker le nombre d'itérations
 
-    try{
-        Jeu jeu(fichier, iterations);
-        //lance le jeu soit en mode console soit en mode graphique
-        if(modeGraph){
-            jeu.ModeGraphique(10); //taille des cellules = 10
+    // Demander à l'utilisateur le chemin du fichier
+    std::cout << "Entrez le nom du fichier contenant l'état initial (ex : fichier_input.txt) : ";
+    std::cin >> cheminFichier;
+
+    // Demander à l'utilisateur le nombre d'itérations
+    std::cout << "Entrez le nombre d'itérations à effectuer : ";
+    std::cin >> nombreIterations;
+
+    try {
+        // Initialisation du jeu avec les paramètres fournis
+        Jeu jeu(cheminFichier, nombreIterations);
+
+        // Demander à l'utilisateur de choisir le mode
+        std::cout << "Choisissez un mode :\n";
+        std::cout << "1. Mode console\n";
+        std::cout << "2. Mode graphique\n";
+        int choix;
+        std::cin >> choix;
+
+        if (choix == 1) {
+            // Lancer le mode console
+            std::cout << "Lancement du jeu en mode console..." << std::endl;
+            jeu.ModeConsole(cheminFichier);
+        } else if (choix == 2) {
+            // Lancer le mode graphique avec une taille de cellules fixe
+            const int tailleCellule = 20; // Taille par défaut des cellules
+            std::cout << "Lancement du jeu en mode graphique..." << std::endl;
+            jeu.ModeGraphique(tailleCellule);
+        } else {
+            std::cerr << "Choix invalide. Veuillez relancer le programme." << std::endl;
+            return 1;
         }
-        else {
-            jeu.ModeConsole(fichier);
-        }
+
+    } catch (const std::exception& e) {
+        // Gestion des erreurs
+        std::cerr << "Erreur : " << e.what() << std::endl;
+        return 1;
     }
 
-    catch(const std::exception& e){
-        // si une erreur survient, affiche le message d'erreur
-        std::cerr << "Erreur :" << e.what() << std::endl;
-        return 1; //retourne une erreur
-    }
-
-    return 0; // Terminer l'exécution
+    return 0; // Fin du programme
 }
-
