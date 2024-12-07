@@ -20,7 +20,7 @@ class Jeu {
     void ModeConsole(const std::string& fichier);
     
     // Lance le jeu en mode graphique (avec une fenêtre SFML)
-    void ModeGraphique(int tailleCellule);
+    void ModeGraphique(int tailleCellule, int temps);
 };
 
 #endif
