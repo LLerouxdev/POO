@@ -80,7 +80,7 @@ void Jeu::ModeConsole(const std::string& fichier) {
     }
 }
 //Lance le jeu en mode graphique avec SFML
-void Jeu::ModeGraphique(int tailleCellule){
+void Jeu::ModeGraphique(int tailleCellule, int temps){
     Affichage affichage(grille.getLignes(), grille.getColonnes(), tailleCellule);
     int iteration = 0;
 
@@ -89,7 +89,7 @@ void Jeu::ModeGraphique(int tailleCellule){
         affichage.gererWindow(); //gère les événements de l'utilisateur (fermeture)
         affichage.afficherGrille(grille); // affiche la grille dans la fenêtre
         grille.actualiser(); //actualise l'état des cellules
-        std::this_thread::sleep_for(std::chrono::milliseconds(100)); //petite pause pour visualiser les changements
+        std::this_thread::sleep_for(std::chrono::milliseconds(temps)); //petite pause pour visualiser les changements
         ++iteration; //incrémente itération pour passer à celle d'après
     }
 
