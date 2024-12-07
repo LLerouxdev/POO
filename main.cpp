@@ -30,10 +30,13 @@ int main() {
             std::cout << "Lancement du jeu en mode console..." << std::endl;
             jeu.ModeConsole(cheminFichier);
         } else if (choix == 2) {
+            std::cout << "Durée entre chaque itérations (en ms) :\n";
+            int time;
+            std::cin >> time;
             // Lancer le mode graphique avec une taille de cellules fixe
             const int tailleCellule = 20; // Taille par défaut des cellules
             std::cout << "Lancement du jeu en mode graphique..." << std::endl;
-            jeu.ModeGraphique(tailleCellule);
+            jeu.ModeGraphique(tailleCellule, time);
         } else {
             std::cerr << "Choix invalide. Veuillez relancer le programme." << std::endl;
             return 1;
