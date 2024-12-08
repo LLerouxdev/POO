@@ -101,7 +101,6 @@ Le projet suit une architecture **MVC** pour une séparation claire des responsa
   2. Console :
 - Création d'un dossier nommé avec un fichier par itération.
   
-  ![gif](https://github.com/user-attachments/assets/ec267ece-2ce0-482a-9cd2-be5a6065519d)](https://www.el-kalam.com/wp-content/uploads/2024/02/game-of-life.gif)
 
   ---
 ##  🔮 **Fichiers du Projet** 🔮
