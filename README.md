@@ -1,6 +1,6 @@
 # Projet POO -- Le Jeu de la Vie --
 
-## Fait par Lin Alexandre Lin et Louis Le Roux
+## Fait par Lin Alexandre Lin et Le Roux Louis
 ## **Sommaire**
  - I/ Jeu de la Vie 
  - II/ Contexte du projet
