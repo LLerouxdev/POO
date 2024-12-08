@@ -1,4 +1,21 @@
-# 👾    **Jeu de la Vie** 👾
+# Projet POO -- Le Jeu de la Vie --
+
+## Fait par Lin Alexandre Lin et Louis Le Roux
+Etudiant à CESI 
+![image](https://github.com/user-attachments/assets/0b13f99e-285a-4148-a1d3-605f21df523d)
+
+
+## **Sommaire**
+ I/ Jeu de la Vie
+ II/ Contexte du projet
+ III/ Fonctionnalités
+ IV/ Architecture
+ V/ Règles du Jeu de la Vie
+ VI/ Pré-requis
+ VII/ Compilation est exécution
+ VIII/ Fichier du Projet
+
+## 👾 **Jeu de la Vie** 👾
 
 Ce projet implémente le célèbre Jeu de la Vie de John Conway, un automate cellulaire développé dans les années 1970. Il permet de simuler l'évolution d'une population de cellules sur une grille.  
 Le projet suit une architecture MVC (Model-View-Controller) et propose deux modes d'interaction :
@@ -67,10 +84,30 @@ Le projet suit une architecture **MVC** pour une séparation claire des responsa
   ---
 ## 🛠 **Compilation et exécution** 🛠
 
+- Mettre au préalable un fichier en .txt avec les dimensions et la grille dimensionnée avec des états (1 ou 0)
+- 
 - Un fichier **Makefile** a été créé pour simplifier la compilation. Exécutez simplement avec la commande :  
   ```bash
   make
   ```
+- Afficher l'interface d'intéraction avec cette commande.
+  ```bash
+  ./Jeu
+  ```
+- Entrer le nom du fichier (.txt).
+  
+- insérer le nombre d'itération.
+  
+- Choisir le mode **Mode d'interface :**
+  
+  1.Graphique :
+- Chosir la durée entre chaque itération.
+  
+  2. Console :
+- Création d'un dossier nommé avec un fichier par itération.
+  
+  ![image](https://github.com/user-attachments/assets/ec267ece-2ce0-482a-9cd2-be5a6065519d)
+
   ---
 ##  🔮 **Fichiers du Projet** 🔮
 - main.cpp : Point d'entrée du programme. 
@@ -78,5 +115,3 @@ Le projet suit une architecture **MVC** pour une séparation claire des responsa
 - Grid.cpp/.h : Gestion de la grille et des cellules.
 - Cell.cpp/.h : Gestion individuelle des cellules.
 - Affichage.cpp/.h : Gestion de l'affichage graphique avec SFML. fichier_input.txt : Exemple de fichier d'entrée contenant une configuration de grille.
-
-
