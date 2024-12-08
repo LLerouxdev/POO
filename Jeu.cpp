@@ -4,12 +4,22 @@
 #include <thread>
 #include <chrono>
 #include <filesystem>
+#include <cassert>
 
 namespace fs = std::filesystem;
 // Constructeur paramétré : initialise le jeu avec un fichier et un nombre d'itérations
 Jeu::Jeu(const std::string& fichier, int iterations) {
     this->maxIteration = iterations;
     this->grille = chargerGrilleDepuisFichier(fichier);
+}
+
+void Jeu::testUnitaireValidite() {
+    auto etatInitial = grille.getEtat(); // Sauvegarder l'état initial
+    grille.actualiser(); // Appliquer une itération
+
+    // Utiliser la méthode de validation
+    assert(grille.validerGrille() && "Erreur : La grille ne respecte pas les règles du Jeu de la Vie.");
+    std::cout << "Test unitaire réussi : la grille est valide après une itération !" << std::endl;
 }
 
 // Charge une grille à partir d'un fichier d'entrée
