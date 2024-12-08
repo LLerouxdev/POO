@@ -66,19 +66,6 @@ void Grid::afficher() const {
     }
 }
 
-//Gestion d'erreur !
-// Verifie si la grille est stable (pas de changement entre les états) 
-bool Grid::estStable(const std::vector<std::vector<Cell>>& etatPrecedent) const { 
-    for(int i = 0 ; i < lignes; ++i){
-        for(int j = 0; j < colonnes; ++j){
-            if(grid[i][j].getVie() != etatPrecedent[i][j].getVie()){ // Compare les états actuels et précédents
-                return false; // Si une cellule diffère, la grille n'est pas stable
-            }
-        }
-    }
-    return true; // Si toutes les cellules sont identiques, la grille est stable
-}
-
 // Retourne l'état actuel de la grille sous forme d'un tableau 2D
  std::vector<std::vector<Cell>> Grid::getEtat() const {
     return grid;
