@@ -81,7 +81,7 @@ Le projet suit une architecture **MVC** pour une séparation claire des responsa
 ## 🛠 **Compilation et exécution** 🛠
 
 - Mettre au préalable un fichier en .txt avec les dimensions et la grille dimensionnée avec des états (1 ou 0)
-- 
+  
 - Un fichier **Makefile** a été créé pour simplifier la compilation. Exécutez simplement avec la commande :  
   ```bash
   make
@@ -95,11 +95,10 @@ Le projet suit une architecture **MVC** pour une séparation claire des responsa
 - insérer le nombre d'itération.
   
 - Choisir le mode **Mode d'interface :**
-  
-1.Graphique :
+
+  1. Graphique :
 - Chosir la durée entre chaque itération.
-  
-2. Console :
+  2. Console :
 - Création d'un dossier nommé avec un fichier par itération.
   
   ![image](https://github.com/user-attachments/assets/ec267ece-2ce0-482a-9cd2-be5a6065519d)
