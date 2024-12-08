@@ -29,10 +29,7 @@ public:
     
     // Affiche l'état actuel de la grille dans la console
     void afficher() const;
-
-    // Vérifie si la grille est stable (plus aucun changement entre deux états)
-    bool estStable(const std::vector<std::vector<Cell>>& etatPrecedent) const;
-
+    
     // Retourne l'état complet de la grille
     std::vector<std::vector<Cell>> getEtat() const;
 
