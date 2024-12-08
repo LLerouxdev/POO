@@ -15,6 +15,9 @@ class Jeu {
     public:
    // Constructeur : initialise le jeu avec un fichier et un nombre d'itérations
     Jeu(const std::string& fichier, int iterations);
+
+    // Test unitaire pour vérifié si les règles du jeu sont respectées
+    void testUnitaireValidite();
     
     // Lance le jeu en mode console (sans interface graphique)
     void ModeConsole(const std::string& fichier);
