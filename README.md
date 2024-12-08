@@ -2,14 +2,14 @@
 
 ## Fait par Lin Alexandre Lin et Louis Le Roux
 ## **Sommaire**
- I/ Jeu de la Vie
- II/ Contexte du projet
- III/ Fonctionnalités
- IV/ Architecture
- V/ Règles du Jeu de la Vie
- VI/ Pré-requis
- VII/ Compilation est exécution
- VIII/ Fichier du Projet
+ - I/ Jeu de la Vie 
+ - II/ Contexte du projet
+ - III/ Fonctionnalités
+ - IV/ Architecture
+ - V/ Règles du Jeu de la Vie
+ - VI/ Pré-requis
+ - VII/ Compilation est exécution
+ - VIII/ Fichier du Projet
 
 ## 👾 **Jeu de la Vie** 👾
 
