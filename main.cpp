@@ -1,6 +1,32 @@
 #include "Jeu.h"
 #include <iostream>
 #include <string>
+#include <cassert>
+
+// Fonction de test unitaire
+void testUnitaire() {
+    Grid grille(5, 5);
+
+    // Initialiser la grille
+    grille.setEtatCellule(1, 1, true);
+    grille.setEtatCellule(1, 2, true);
+    grille.setEtatCellule(1, 3, true);
+
+    // Vérifier l'état avant actualisation
+    assert(grille.getEtatCellule(1, 1) == true);
+    assert(grille.getEtatCellule(1, 2) == true);
+    assert(grille.getEtatCellule(1, 3) == true);
+
+    // Actualiser la grille
+    grille.actualiser();
+
+    // Vérifier l'état après actualisation
+    assert(grille.getEtatCellule(1, 2) == true); // La cellule centrale doit survivre
+    assert(grille.getEtatCellule(0, 2) == true); // Une cellule morte doit devenir vivante
+    assert(grille.getEtatCellule(2, 2) == true); // Une cellule morte doit devenir vivante
+
+    std::cout << "Tous les tests unitaires ont réussi !" << std::endl;
+}
 
 int main() {
     std::string cheminFichier; // Variable pour stocker le chemin du fichier
