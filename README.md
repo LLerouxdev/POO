@@ -1,4 +1,4 @@
-# **Jeu de la Vie**
+# 👾    **Jeu de la Vie** 👾
 
 Ce projet implémente le célèbre Jeu de la Vie de John Conway, un automate cellulaire développé dans les années 1970. Il permet de simuler l'évolution d'une population de cellules sur une grille.  
 Le projet suit une architecture MVC (Model-View-Controller) et propose deux modes d'interaction :
@@ -7,7 +7,7 @@ Le projet suit une architecture MVC (Model-View-Controller) et propose deux mode
 
 ---
 
-## **Contexte du projet**
+## 👇 **Contexte du projet** 👇
 
 Le **Jeu de la Vie** est un automate cellulaire conçu par le mathématicien **John Horton Conway**. Il repose sur des règles simples, mais génère souvent des motifs étonnamment complexes, simulant des comportements tels que la stabilité, l'oscillation, ou même l'extinction de populations.
 
@@ -19,7 +19,7 @@ Ce projet a un objectif de comprendre la POO et l'utilisation des classes, en ex
 
 ---
 
-## **Fonctionnalités**
+## 🚀 **Fonctionnalités** 🚀
 
 - **Mode Console** : Affichage des itérations dans le terminal et création d'un dossier contenant chaque itération préalablement définie par l'utilisateur.
 - **Mode Graphique** : Visualisation avec la bibliothèque SFML et configuration de la durée entre chaque itération.
@@ -29,7 +29,7 @@ Ce projet a un objectif de comprendre la POO et l'utilisation des classes, en ex
 
 ---
 
-## **Architecture**
+## 🚨 **Architecture** 🚨
 
 Le projet suit une architecture **MVC** pour une séparation claire des responsabilités :
 
@@ -44,7 +44,7 @@ Le projet suit une architecture **MVC** pour une séparation claire des responsa
 
 ---
 
-## **Règles du Jeu de la Vie**
+## 🦠 **Règles du Jeu de la Vie** 🦠
 
 - Une **cellule vivante** :
   - **Reste vivante** si elle a 2 ou 3 voisins vivants.
@@ -56,24 +56,23 @@ Le projet suit une architecture **MVC** pour une séparation claire des responsa
 
 ---
 
-## **Pré-requis**
+## 🔎 **Pré-requis** 🔍
 
-### **Bibliothèques nécessaires**
+### 📖 **Bibliothèques nécessaires** 📖
 - **SFML** (*Simple and Fast Multimedia Library*)  
   Pour l’installer sous Linux :  
   ```bash
   sudo apt-get install libsfml-dev
   ```
   ---
-## **Compilation et exécution**
+## 🛠 **Compilation et exécution** 🛠
 
-### **Bibliothèques nécessaires**
 - Un fichier **Makefile** a été créé pour simplifier la compilation. Exécutez simplement avec la commande :  
   ```bash
   make
   ```
   ---
-## **Fichiers du Projet**
+##  🔮 **Fichiers du Projet** 🔮
 - main.cpp : Point d'entrée du programme. 
 - Jeu.cpp/.h : Classe principale du contrôleur.
 - Grid.cpp/.h : Gestion de la grille et des cellules.
