@@ -6,15 +6,16 @@
 #include <filesystem>
 
 namespace fs = std::filesystem;
-// Constructeur paramétré
+// Constructeur paramétré : initialise le jeu avec un fichier et un nombre d'itérations
 Jeu::Jeu(const std::string& fichier, int iterations) {
     this->maxIteration = iterations;
     this->grille = chargerGrilleDepuisFichier(fichier);
 }
 
+// Charge une grille à partir d'un fichier d'entrée
 Grid Jeu::chargerGrilleDepuisFichier(const std::string& fichier){
     std::ifstream fichierEntree(fichier); 
-    if(!fichierEntree.is_open()){ //Gestion d'erreur
+    if(!fichierEntree.is_open()){ // Vérifie si le fichier peut être ouvert
         throw std::runtime_error("Impossible d'ouvrir le Fichier !");
     }
 
