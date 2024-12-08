@@ -1,10 +1,6 @@
 # Projet POO -- Le Jeu de la Vie --
 
 ## Fait par Lin Alexandre Lin et Louis Le Roux
-Etudiant à CESI 
-![image](https://github.com/user-attachments/assets/0b13f99e-285a-4148-a1d3-605f21df523d)
-
-
 ## **Sommaire**
  I/ Jeu de la Vie
  II/ Contexte du projet
@@ -100,10 +96,10 @@ Le projet suit une architecture **MVC** pour une séparation claire des responsa
   
 - Choisir le mode **Mode d'interface :**
   
-  1.Graphique :
+1.Graphique :
 - Chosir la durée entre chaque itération.
   
-  2. Console :
+2. Console :
 - Création d'un dossier nommé avec un fichier par itération.
   
   ![image](https://github.com/user-attachments/assets/ec267ece-2ce0-482a-9cd2-be5a6065519d)
