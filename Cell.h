@@ -1,14 +1,20 @@
-#ifndef CELLULE_H
-#define CELLULE_H
+#ifndef CELL_H
+#define CELL_H
 
-class Cellule {
+class Cell {
 private:
-    bool vivante;
+    bool vivante;  // L'état de la cellule (true = vivante, false = morte)
 
 public:
-    Cellule(bool etat = false);
-    bool estVivante() const;
-    void definirEtat(bool etat);
+    Cell(); // Constructeur par défault
+    // Constructeur paramétré: initialise l'état de la cellule (par défaut morte)
+    Cell(bool etat);
+
+    // Get : retourne true si la cellule est vivante, false si morte
+    bool getVie() const;
+
+    // Set : modifie l'état de la cellule
+    void setEtat(bool etat);
 };
 
 #endif
