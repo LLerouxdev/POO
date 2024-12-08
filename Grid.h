@@ -17,6 +17,9 @@ public:
     Grid();// Constructeur par défault
 
     Grid(int lignes, int colonnes);  // Constructeur : initialise la grille
+    
+    // Méthode pour valider si l'état de la grille respecte les règles du jeu
+    bool validerGrille() const;
 
     // Set l'état d'une cellule à (x, y)
     void setEtatCellule(int x, int y, bool etat);
@@ -29,7 +32,7 @@ public:
     
     // Affiche l'état actuel de la grille dans la console
     void afficher() const;
-    
+
     // Retourne l'état complet de la grille
     std::vector<std::vector<Cell>> getEtat() const;
 
