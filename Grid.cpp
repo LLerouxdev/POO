@@ -30,6 +30,27 @@ int Grid::compterVoisinsVivants(int x, int y) const {
     return compte;
 }
 
+bool Grid::validerGrille() const {
+    for (int x = 0; x < lignes; ++x) {
+        for (int y = 0; y < colonnes; ++y) {
+            int voisinsVivants = compterVoisinsVivants(x, y);
+            bool etatActuel = getEtatCellule(x, y);
+
+            // Vérifier les règles du Jeu de la Vie
+            if (etatActuel) {
+                if (voisinsVivants != 2 && voisinsVivants != 3) {
+                    return false; // Une cellule vivante ne respecte pas les règles
+                }
+            } else {
+                if (voisinsVivants == 3) {
+                    return true; // Une cellule morte respecte la règle de naissance
+                }
+            }
+        }
+    }
+    return true;
+}
+
 // défini l'état d'une cellule à une position (x, y)
 void Grid::setEtatCellule(int x, int y, bool etat){
     this-> grid[x][y].setEtat(etat);
