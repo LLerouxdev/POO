@@ -96,9 +96,9 @@ Le projet suit une architecture **MVC** pour une séparation claire des responsa
   
 - Choisir le mode **Mode d'interface :**
 
-  1. Graphique :
+  - 1. Graphique :
 - Chosir la durée entre chaque itération.
-  2. Console :
+  - 2. Console :
 - Création d'un dossier nommé avec un fichier par itération.
   
 
